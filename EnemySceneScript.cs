@@ -16,7 +16,7 @@ public class EnemySceneScript : MonoBehaviour {
         if (currentBoxCount == allBoxesClearCount) {
             isEmptyBoxes = true;
         }
-        Debug.Log("one object removed : " + currentBoxCount);
+        //Debug.Log("one object removed : " + currentBoxCount);
     }
 
     private void Update() {
