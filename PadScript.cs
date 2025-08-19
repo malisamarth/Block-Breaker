@@ -3,24 +3,36 @@ using UnityEngine;
 public class PadScript : MonoBehaviour
 {
     [SerializeField] Rigidbody2D ballRigid2d;
+    [SerializeField] GameObject ballObject;
 
     private float padMoveSpeed = 15f;
     private float ballThrowSpeed = 8f;
+    private float ballObjectPositionY;
+    private float padPositionY = -6f;
 
-    void Start()
-    {
-        
-    }
+
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow)) {
+        ballObjectPositionY = ballObject.transform.position.y;
+
+        if (ballObjectPositionY > padPositionY) {
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                transform.position += new Vector3(-1f, 0f, 0f) * padMoveSpeed * Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow)) {
+                transform.position += new Vector3(1f, 0f, 0f) * padMoveSpeed * Time.deltaTime;
+            }
+        }
+        /*
+        if (Input.GetKey(KeyCode.LeftArrow)) {
             transform.position += new Vector3(-1f, 0f, 0f) * padMoveSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.RightArrow)) {
             transform.position += new Vector3(1f, 0f, 0f) * padMoveSpeed * Time.deltaTime;
-        }
+        }*/
 
     }
 
