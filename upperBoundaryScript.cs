@@ -9,6 +9,6 @@ public class upperBoundaryScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         //ballRigid2d.linearVelocity = new Vector2(Random.Range(-9, 9) * ballThrowSpeed /** upperGravityPush*/, Random.Range(-1, 1) * ballThrowSpeed * upperGravityPush);
         ballRigid2d.linearVelocity = new Vector2(Random.Range(-1, 1) * ballThrowSpeed, Random.Range(-1, 1) * ballThrowSpeed);
-        Debug.Log("upper boudary touched");
+        //Debug.Log("upper boudary touched");
     }
 }
