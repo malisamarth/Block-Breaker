@@ -21,7 +21,7 @@ public class BoxScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
 
         ballRigid2d.linearVelocity = new Vector2(Random.Range(-1, 1) * ballThrowSpeed /** gravityPush*/, Random.Range(-1, 1) * ballThrowSpeed * gravityPush);
-        Debug.Log("left boudary touched");
+        //Debug.Log("left boudary touched");
         enemyScript.boxRemoved();
         scoreManagerScript.addScore();
         Destroy(gameObject);
