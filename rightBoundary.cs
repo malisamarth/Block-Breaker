@@ -7,6 +7,6 @@ public class rightBoundary : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         ballRigid2d.linearVelocity = new Vector2(-ballThrowSpeed, -(Random.Range(-1, 1) * ballThrowSpeed));
-        Debug.Log("right boudary touched");
+        //Debug.Log("right boudary touched");
     }
 }
