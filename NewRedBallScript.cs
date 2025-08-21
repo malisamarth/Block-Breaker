@@ -1,12 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BallScript : MonoBehaviour
+public class NewRedBallScript : MonoBehaviour
 {
     [SerializeField] Rigidbody2D ballRigid2d;
     public ScoreManagerScript scoreManagerScript;
-
-    private int maxLives = 3;
+    //private int maxLives = 3;
     private float maxBallPositionY = -6f;
     private bool isGameActive = true;
     private float ballThrowSpeed = 10f;
@@ -14,35 +12,22 @@ public class BallScript : MonoBehaviour
     private void Start() {
         scoreManagerScript = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManagerScript>();
     }
-    void Update() { 
+    void Update() {
 
         if (transform.position.y < maxBallPositionY && isGameActive) {
-            maxLives--;
-            scoreManagerScript.removeLive(maxLives);
-            if (maxLives == 0) {
-                isGameActive = false;
-                ballRigid2d.gravityScale = 0;
-
-                ballRigid2d.linearVelocity = Vector2.zero;
-
-                scoreManagerScript.addCurrentScoreToHighest(scoreManagerScript.currentScore);
-                List<int> highestScoreArray = scoreManagerScript.GethighestScoreArray();
-                scoreManagerScript.addingScoreToOver(highestScoreArray);
-
-                scoreManagerScript.gameOver();
-            } else {
-                spwanBall();
-            }
+            //spwanBall();
+            Destroy(gameObject);
         }
 
     }
+
     private void OnCollisionEnter2D(Collision2D collision) {
-        
+
         if (collision.gameObject.tag == "Ceil") {
             Debug.Log("CeilWall");
             ballThrowSpeed = 7f;
-            float randX = Random.Range(-0.8f, 0.8f);          
-            Vector2 dir = new Vector2(randX, -1f).normalized; 
+            float randX = Random.Range(-0.8f, 0.8f);
+            Vector2 dir = new Vector2(randX, -1f).normalized;
             ballRigid2d.linearVelocity = dir * ballThrowSpeed;
         }
 
@@ -64,12 +49,9 @@ public class BallScript : MonoBehaviour
             );
         }
     }
+
     private void spwanBall() {
         transform.position = new Vector2(0, -2.77f);
         ballRigid2d.linearVelocity = Vector2.zero;
-    }
-
-    public void increaseScore() {
-        maxLives = 3;
     }
 }
