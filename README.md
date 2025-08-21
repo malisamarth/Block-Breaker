@@ -3,6 +3,7 @@ This game is inspired by ‘Arkanoid’, but I have twisted a few things. Player
 In the top left corner, there is a score UI that increases whenever a block is broken. In the top right corner, there is “Lives” UI, which tells how many lives (chances) does player has if they miss the ball. Inside its logic, there is a function that gets called whenever the ball goes down the pad and out of camera view. There is a menu UI, which has “Game Over!!” text UI and a button that says “Play again”. There is the “Highest Score”, which tells what the highest score achieved is in the entire game loop. Internally, there is an array that holds all the scores achieved, and there is a function that finds and displays the biggest number in the array.
 
 <img width="1471" height="837" alt="image" src="https://github.com/user-attachments/assets/1abef579-132c-4b24-b9ee-2607fd840aa7" />
-Components and Hierarchy = <img width="1049" height="710" alt="image" src="https://github.com/user-attachments/assets/f10f3826-4f49-4489-83ec-45206b0dd2fa" />
+
+Components and Hierarchy = <img width="888" height="554" alt="image" src="https://github.com/user-attachments/assets/d7506422-39f3-482b-b7a8-c701a4857c87" />
 
 Gameplay = https://drive.google.com/file/d/1DiRitD_4Whw0s7WQKc4oP0g0r_fpd2qX/view?usp=sharing
