@@ -13,6 +13,7 @@ public class ScoreManagerScript : MonoBehaviour
     public Text highestScore;
     public int currentScore = 0;
     public static List<int> highestScoresArray = new List<int>();
+    private static List<int> displayScoresArray = new List<int>();
 
     public GameObject gameOverScreen;
 
@@ -27,11 +28,20 @@ public class ScoreManagerScript : MonoBehaviour
     }
 
     private string makingStringScores() {
+
         string scoreList = "";
-        for (int i = 0; i < highestScoresArray.Count; i++) {
-            scoreList += highestScoresArray[i] + "\n";
+        if (displayScoresArray.Count > 6) {
+            displayScoresArray.RemoveAt(0);
+            for (int i = 0; i < displayScoresArray.Count; i++) {
+                scoreList += displayScoresArray[i] + "\n";
+            }
+            Debug.Log(scoreList);
+        } else {
+            for (int i = 0; i < displayScoresArray.Count; i++) {
+                scoreList += displayScoresArray[i] + "\n";
+            }
+            Debug.Log(scoreList);
         }
-        Debug.Log(scoreList);
         return scoreList;
     }
     
@@ -59,10 +69,14 @@ public class ScoreManagerScript : MonoBehaviour
         if (currentRemainingLives == 0) {
             livesRemainingText.text = " ";
         }
+        if (currentRemainingLives == 3) {
+            livesRemainingText.text = "O O O";
+        }
     }
 
     public void addCurrentScoreToHighest(int currentScore) {
         highestScoresArray.Add(currentScore);
+        displayScoresArray.Add(currentScore);
         for ( int i = 0; i < highestScoresArray.Count; i++ ) {
             Debug.Log("Index " + i + " : " + highestScoresArray[i]);
         }
